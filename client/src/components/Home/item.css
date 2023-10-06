@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.item .subitem {
+  display: flex;
+}
+
+.item .date {
+    margin-right: 10px;
+    color: #C6C6C6;
+}
+
+.item .value {
+    color: #03AC00;
+
+}

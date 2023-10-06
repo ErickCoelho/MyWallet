@@ -1,0 +1,63 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.registersTable {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  border-radius: 5px;
+  padding: 23px 12px 0;
+  flex-grow: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.saldo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 12px 0;
+  font-size: 17px;
+}
+
+.saldo .title {
+  font-weight: 700;
+}
+
+.saldo .value {
+    color: #03AC00;
+font-weight: 400;
+}
+
+.newRegistrationContainer {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.newRegistration {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48%;
+  height: 114px;
+  border-radius: 5px;
+  background: #a328d6;
+  padding: 11px;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+ion-icon {
+  font-size: 27px;
+}

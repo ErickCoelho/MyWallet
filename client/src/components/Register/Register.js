@@ -6,7 +6,7 @@ import CurrencyInput from "react-currency-input-field";
 export default function Register({ entryType }) {
   const [incomeInfo, setIncomeInfo] = useState({});
 
-  function loginUser() {
+  function registerValue() {
     return;
   }
 
@@ -16,7 +16,7 @@ export default function Register({ entryType }) {
         Nova {entryType === "Income" ? "entrada" : "saída"}
       </div>
 
-      <form onSubmit={loginUser}>
+      <form onSubmit={registerValue}>
         <CurrencyInput
           id="input-example"
           name="input-name"

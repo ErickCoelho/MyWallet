@@ -5,6 +5,7 @@ import UserContext from "./context/UserContext";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Register from "./components/Register/Register";
+import Home from "./components/Home/Home";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user') || null);
@@ -20,6 +21,7 @@ function App() {
             <Route path="/cadastro" element={<Signup />}></Route>
             <Route path="/entrada" element={<Register entryType="Income" />}></Route>
             <Route path="/saida" element={<Register entryType="Expense" />}></Route>
+            <Route path="/home" element={<Home />}></Route>
           </Routes>
         </BrowserRouter>
       </TokenContext.Provider>

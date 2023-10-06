@@ -6,7 +6,7 @@ import logoImage from "../../assets/MyWallet.png";
 export default function SignUp() {
   const [signUpInfo, setSignUpInfo] = useState({});
 
-  function loginUser() {
+  function signupUser() {
     return;
   }
 
@@ -15,7 +15,7 @@ export default function SignUp() {
 
       <img src={logoImage} alt="logo" />{" "}
 
-      <form onSubmit={loginUser}>
+      <form onSubmit={signupUser}>
         <input
           type="text"
           placeholder="Nome"
