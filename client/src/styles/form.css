@@ -1,0 +1,66 @@
+.center-vertically {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Isso garante que ele ocupe 100% da altura da janela */
+  padding-bottom: 33px;
+}
+
+img {
+    margin-bottom: 24px;
+    width: 147px;
+}
+
+.form-title {
+    color: #FFF;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 25px 0 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  max-width: 400px;
+  height: 58px;
+  padding-left: 15px;
+  margin-bottom: 13px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 400px;
+}
+
+input::placeholder {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400px;
+}
+
+button {
+  width: 100%;
+  max-width: 400px;
+  height: 46px;
+  margin-bottom: 13px;
+  background-color: #a328d6;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700 !important;;
+  margin-top: 23px;
+  text-decoration: none;
+}
