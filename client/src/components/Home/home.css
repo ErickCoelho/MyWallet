@@ -16,6 +16,17 @@
   position: relative;
 }
 
+.registersTable .emptyTable {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #868686;
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .saldo {
   display: flex;
   justify-content: space-between;
@@ -33,8 +44,8 @@
 }
 
 .saldo .value {
-    color: #03AC00;
-font-weight: 400;
+  color: #03ac00;
+  font-weight: 400;
 }
 
 .newRegistrationContainer {
