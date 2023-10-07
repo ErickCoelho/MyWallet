@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./home.css";
 import Item from "./Item";
 
@@ -7,7 +8,10 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="form-title">Olá, {user.name}</div>
+      <div className="form-title">
+        <div>Olá, {user.name}</div>
+        <ion-icon name="log-out-outline"></ion-icon>
+      </div>
       {contItens > 0 && (
         <div className="registersTable">
           <Item />
@@ -39,27 +43,31 @@ export default function Home() {
       )}
       {contItens === 0 && (
         <div className="registersTable">
-          <div className="emptyTable">Não há registros de<br/>entrada ou saída</div>
+          <div className="emptyTable">
+            Não há registros de
+            <br />
+            entrada ou saída
+          </div>
         </div>
       )}
 
       <div className="newRegistrationContainer">
-        <div className="newRegistration">
+        <Link className="newRegistration" to="/entrada">
           <ion-icon name="add-circle-outline"></ion-icon>
           <div>
             Nova
             <br />
             entrada
           </div>
-        </div>
-        <div className="newRegistration">
+        </Link>
+        <Link className="newRegistration" to="/saida">
           <ion-icon name="remove-circle-outline"></ion-icon>
           <div>
             Nova
             <br />
             saída
           </div>
-        </div>
+        </Link>
       </div>
 
       <div></div>

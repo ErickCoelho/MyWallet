@@ -49,8 +49,8 @@ export default function SignUp() {
           }
         ></input>
         <button type="submit"> Entrar </button>
-        <Link to="/cadastro" className="signupLink">
-          Não tem uma conta? Cadastre-se!
+        <Link to="/" className="signupLink">
+          Já criou sua conta? Faça o Login!
         </Link>
       </form>
       
