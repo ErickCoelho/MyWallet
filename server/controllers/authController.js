@@ -9,23 +9,31 @@ export async function signUp(req, res) {
 
   await db.collection('users').insertOne({ ...user, password: passwordHash });
 
-  res.sendStatus(201);
+  const token = uuid();
+  await db.collection('sessions').insertOne({ token, userId: user._id });
+
+  res.send({...user, token}).status(201);
 }
 
 export async function signIn(req, res) {
   const userLogin = req.body;
 
-  const user = await db.collectione('users').findOne({
+  const user = await db.collection('users').findOne({
     email: userLogin.email
   });
+  console.log("0");
 
   if (user && bcrypt.compare(user.password, userLogin.password)) {
+    console.log("1");
     const token = uuid();
 
     await db.collection('sessions').insertOne({ token, userId: user._id });
+    console.log("2");
 
-    return res.send(token);
+    return res.send({...user, token}).status(200);
+    console.log("3");
   }
-  else 
+  else {
     return res.sendStatus(401);
+  }
 }

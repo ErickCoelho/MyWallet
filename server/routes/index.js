@@ -14,7 +14,7 @@ router.get('/users', async (req, res) => {
     console.error('Erro ao buscar usuários:', error);
     res.status(500).send('Erro ao buscar usuários');
   }
-});
+}); //apenas para teste
 router.use(authRouter);
 router.use(userRouter);
 router.use(entryRouter);
