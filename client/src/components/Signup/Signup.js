@@ -2,12 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/form.css";
 import logoImage from "../../assets/MyWallet.png";
+import axios from "axios";
+
 
 export default function SignUp() {
   const [signUpInfo, setSignUpInfo] = useState({});
 
-  function signupUser() {
-    return;
+  function createUser(e) {
+
+    console.log(signUpInfo);
+    e.preventDefault();
+    
+    axios.post("http://localhost:5001/sign-up", signUpInfo);
   }
 
   return (
@@ -15,7 +21,7 @@ export default function SignUp() {
 
       <img src={logoImage} alt="logo" />{" "}
 
-      <form onSubmit={signupUser}>
+      <form onSubmit={createUser}>
         <input
           type="text"
           placeholder="Nome"
