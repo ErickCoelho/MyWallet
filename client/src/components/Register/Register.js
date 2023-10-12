@@ -3,7 +3,7 @@ import "../../styles/form.css";
 import CurrencyInput from "react-currency-input-field";
 
 export default function Register({ entryType }) {
-  const [incomeInfo, setIncomeInfo] = useState({});
+  const [incomeInfo, setIncomeInfo] = useState({ type: entryType });
 
   function registerValue() {
     return;
@@ -12,7 +12,7 @@ export default function Register({ entryType }) {
   return (
     <div>
       <div className="form-title">
-        Nova {entryType === "Income" ? "entrada" : "saída"}
+        Nova {entryType === "income" ? "entrada" : "saída"}
       </div>
 
       <form onSubmit={registerValue}>
@@ -37,7 +37,7 @@ export default function Register({ entryType }) {
         ></input>
         <button type="submit">
           {" "}
-          Salvar {entryType === "Income" ? "entrada" : "saída"}{" "}
+          Salvar {entryType === "income" ? "entrada" : "saída"}{" "}
         </button>
       </form>
     </div>
