@@ -24,8 +24,8 @@ export async function signIn(req, res) {
 
     await db.collection('sessions').insertOne({ token, userId: user._id });
 
-    res.send(token);
+    return res.send(token);
   }
   else 
-    res.sendStatus(401);
+    return res.sendStatus(401);
 }
