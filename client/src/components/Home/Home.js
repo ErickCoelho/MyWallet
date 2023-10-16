@@ -15,7 +15,7 @@ export default function Home() {
 
   const [itensList, setItensList] = useState([]);
 
-  function handleLogout(){
+  function handleLogout() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     setUser(null);
@@ -23,8 +23,8 @@ export default function Home() {
     navigate("/");
   }
 
-  function getItens(){
-    const header = { headers: { Authorization: `Bearer ${user.token}`} };
+  function getItens() {
+    const header = { headers: { Authorization: `Bearer ${user.token}` } };
     axios.get("http://localhost:5001/entry", header)
       .then(response => {
         setItensList(response.data);
@@ -47,7 +47,7 @@ export default function Home() {
 
       {itensList.length > 0 && (
         <div className="registersTable">
-          {itensList.map(item => 
+          {itensList.map(item =>
             <Item key={item._id} item={item} />
           )}
           <div className="saldo">

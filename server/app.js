@@ -8,6 +8,6 @@ app.use(cors());
 
 app.use(router);
 
-app.listen(5001, () => {
-  console.log("Server is listening on port 5001.");
+app.listen(process.env.PORT, () => {
+  console.log("Server is listening on port " + process.env.PORT);
 });

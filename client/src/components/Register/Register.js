@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 export default function Register({ entryType }) {
   const userString = localStorage.getItem('user');
   const user = JSON.parse(userString);
-  const [entryInfo, setEntryInfo] = useState({ type: entryType });
+const [entryInfo, setEntryInfo] = useState({ type: entryType });
   const navigate = useNavigate();
 
   function handleCurrencyValueChange(value) {
