@@ -1,10 +1,31 @@
 import { Link } from "react-router-dom";
 import "./home.css";
 import Item from "./Item";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const user = { name: "Fulaninho" };
-  const contItens = 0;
+  const userString = localStorage.getItem('user');
+  const user = JSON.parse(userString);
+  const contItens = 1;
+
+  const [itensList, setItensList] = useState([]);
+
+  function getItens(){
+    const header = { headers: { Authorization: `Bearer ${user.token}`} };
+    axios.get("http://localhost:5001/entry", header)
+      .then(response => {
+        console.log(response.data);
+        setItensList(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  useEffect(() => {
+    getItens();
+  }, []);
 
   return (
     <div className="home">

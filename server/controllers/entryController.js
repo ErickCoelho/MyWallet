@@ -2,7 +2,7 @@ import db from "../db.js";
 
 export async function createEntry(req, res) {
   const { user } = res.locals;
-  const { entry } = req.body;
+  const entry = req.body;
 
   await db.collection('entries').insertOne({...entry, userId: user._id});
 
@@ -12,9 +12,9 @@ export async function createEntry(req, res) {
 export async function getEntries(req, res) {
   const { user } = res.locals;
 
-  await db.collection('entries').find({ userId: user._id });
+  const entries = await db.collection('entries').find({ userId: user._id }).toArray();
 
-  res.sendStatus(200);
+  res.send(entries).status(200);
 }
 
 export async function updateEntry(req, res) {

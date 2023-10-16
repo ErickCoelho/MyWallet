@@ -1,12 +1,38 @@
 import { useState } from "react";
 import "../../styles/form.css";
 import CurrencyInput from "react-currency-input-field";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 export default function Register({ entryType }) {
-  const [incomeInfo, setIncomeInfo] = useState({ type: entryType });
+  const userString = localStorage.getItem('user');
+  const user = JSON.parse(userString);
+  const [entryInfo, setEntryInfo] = useState({ type: entryType });
+  const navigate = useNavigate();
+
+  function handleCurrencyValueChange(value) {
+    if (typeof value !== 'string') return;
+
+    if(value.includes(","))
+      setEntryInfo({ ...entryInfo, value: parseInt(value.replace(",", "")) });
+    else
+      setEntryInfo({ ...entryInfo, value: parseInt(value)*100 });
+  }
 
   function registerValue() {
-    return;
+    const header = { headers: { Authorization: `Bearer ${user.token}`} };
+    alert(JSON.stringify(header)); //{"headers":{"Authorization":"Bearer 9686833b-7351-4686-8f0d-d159c241a8ee"}}
+    alert(JSON.stringify(entryInfo));  //{"type":"income","valor":37200,"description":"entryyy"}
+    axios.post("http://localhost:5001/entry", entryInfo, header)
+    .then(response => {
+      console.log(response.data);
+      alert("then");
+      navigate('/home');
+    })
+    .catch(error => {
+      console.error(error);
+      alert("catch");
+    });
   }
 
   return (
@@ -22,17 +48,14 @@ export default function Register({ entryType }) {
           placeholder="Valor"
           prefix="R$ "
           decimalsLimit={2}
-          onValueChange={(value) => {
-            const stringInt = value.replace(",", "");
-            setIncomeInfo({ ...incomeInfo, valor: parseInt(stringInt) });
-          }}
+          onValueChange={handleCurrencyValueChange}
         ></CurrencyInput>
         <input
           type="text"
           placeholder="Descrição"
           autoComplete="on"
           onChange={(e) =>
-            setIncomeInfo({ ...incomeInfo, description: e.target.value })
+            setEntryInfo({ ...entryInfo, description: e.target.value })
           }
         ></input>
         <button type="submit">
