@@ -17,11 +17,10 @@ function App() {
       <TokenContext.Provider value={{ token, setToken }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}></Route>
+            <Route path="/" element={!user ? <Login /> : <Home />}></Route>
             <Route path="/cadastro" element={<Signup />}></Route>
             <Route path="/entrada" element={<Register entryType="income" />}></Route>
             <Route path="/saida" element={<Register entryType="expense" />}></Route>
-            <Route path="/home" element={<Home />}></Route>
           </Routes>
         </BrowserRouter>
       </TokenContext.Provider>

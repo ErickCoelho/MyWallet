@@ -15,8 +15,6 @@ export default function Login() {
   function loginUser(e) {
     e.preventDefault();
 
-    console.log(loginInfo);
-
     axios.post("http://localhost:5001/sign-in", loginInfo)
       .then(response => {
         const user = response.data;
@@ -24,7 +22,7 @@ export default function Login() {
         localStorage.setItem('user', JSON.stringify(user));
         setToken(user.token);
         localStorage.setItem('token', user.token);
-        navigate('/home');
+        navigate('/');
       })
       .catch(error => {
         console.error(error);

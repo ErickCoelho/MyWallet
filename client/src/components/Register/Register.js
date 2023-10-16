@@ -20,25 +20,24 @@ export default function Register({ entryType }) {
   }
 
   function registerValue() {
+    setEntryInfo({ ...entryInfo })
+
     const header = { headers: { Authorization: `Bearer ${user.token}`} };
-    alert(JSON.stringify(header)); //{"headers":{"Authorization":"Bearer 9686833b-7351-4686-8f0d-d159c241a8ee"}}
-    alert(JSON.stringify(entryInfo));  //{"type":"income","valor":37200,"description":"entryyy"}
     axios.post("http://localhost:5001/entry", entryInfo, header)
-    .then(response => {
-      console.log(response.data);
-      alert("then");
-      navigate('/home');
+    .then((response) => {
+      console.log(response);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
-      alert("catch");
     });
+    navigate('/');
   }
 
   return (
     <div>
       <div className="form-title">
-        Nova {entryType === "income" ? "entrada" : "saída"}
+        <div>Nova {entryType === "income" ? "entrada" : "saída"}</div>
+        <ion-icon name="arrow-undo" onClick={() => navigate('/')}></ion-icon>
       </div>
 
       <form onSubmit={registerValue}>

@@ -4,7 +4,7 @@ export async function createEntry(req, res) {
   const { user } = res.locals;
   const entry = req.body;
 
-  await db.collection('entries').insertOne({...entry, userId: user._id});
+  await db.collection('entries').insertOne({...entry, userId: user._id, timestamp: new Date()});
 
   res.sendStatus(200);
 }

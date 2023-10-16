@@ -17,5 +17,8 @@
 
 .item .value {
     color: #03AC00;
+}
 
+.item .value.expense {
+    color: #C70000;
 }
