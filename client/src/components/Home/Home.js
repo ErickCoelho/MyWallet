@@ -23,9 +23,9 @@ export default function Home() {
     navigate("/");
   }
 
-  function getItens() {
+  async function getItens() {
     const header = { headers: { Authorization: `Bearer ${user.token}` } };
-    axios.get("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", header)
+    await axios.get("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", header)
       .then(response => {
         setItensList(response.data);
       })

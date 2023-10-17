@@ -12,23 +12,24 @@ export default function Login() {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  function loginUser(e) {
+  async function loginUser(e) {
     e.preventDefault();
 
-    axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/sign-in", loginInfo)
+    await axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/sign-in", loginInfo)
       .then(response => {
         const user = response.data;
         setUser(user);
         localStorage.setItem('user', JSON.stringify(user));
         setToken(user.token);
         localStorage.setItem('token', user.token);
-        navigate('/');
       })
       .catch(error => {
         console.error(error);
         alert("Erro ao fazer login. Insira as informações corretas!");
       }
-    );    
+    );
+    
+    navigate('/');
   }
 
   return (

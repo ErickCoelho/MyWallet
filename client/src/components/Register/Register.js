@@ -19,17 +19,20 @@ const [entryInfo, setEntryInfo] = useState({ type: entryType });
       setEntryInfo({ ...entryInfo, value: parseInt(value)*100 });
   }
 
-  function registerValue() {
+  async function registerValue(e) {
+    e.preventDefault();
+
     setEntryInfo({ ...entryInfo })
 
     const header = { headers: { Authorization: `Bearer ${user.token}`} };
-    axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", entryInfo, header)
+    await axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", entryInfo, header)
     .then((response) => {
       console.log(response);
     })
     .catch((error) => {
       console.error(error);
     });
+    
     navigate('/');
   }
 
