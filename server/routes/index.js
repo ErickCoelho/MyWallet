@@ -15,6 +15,12 @@ router.get('/users', async (req, res) => {
     res.status(500).send('Erro ao buscar usuários');
   }
 }); //apenas para teste
+router.get('/allentries', async (req, res) => {
+
+  const entries = await db.collection('entries').find({}).toArray();
+
+  res.send(entries).status(200);
+}); //apenas para teste
 router.use(authRouter);
 router.use(userRouter);
 router.use(entryRouter);
