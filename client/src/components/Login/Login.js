@@ -15,7 +15,7 @@ export default function Login() {
   function loginUser(e) {
     e.preventDefault();
 
-    axios.post("http://localhost:5001/sign-in", loginInfo)
+    axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/sign-in", loginInfo)
       .then(response => {
         const user = response.data;
         setUser(user);

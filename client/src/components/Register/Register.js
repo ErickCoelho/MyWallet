@@ -23,7 +23,7 @@ const [entryInfo, setEntryInfo] = useState({ type: entryType });
     setEntryInfo({ ...entryInfo })
 
     const header = { headers: { Authorization: `Bearer ${user.token}`} };
-    axios.post("http://localhost:5001/entry", entryInfo, header)
+    axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", entryInfo, header)
     .then((response) => {
       console.log(response);
     })

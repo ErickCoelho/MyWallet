@@ -16,14 +16,14 @@ export default function SignUp() {
   function createUser(e) {
     e.preventDefault();
     
-    axios.post("http://localhost:5001/sign-up", signUpInfo)
+    axios.post("https://back-my-wallet-9cf99e7e0077.herokuapp.com/sign-up", signUpInfo)
       .then(response => {
         const user = response.data;
         setUser(user);
         localStorage.setItem('user', JSON.stringify(user));
         setToken(user.token);
         localStorage.setItem('token', user.token);
-        navigate('/home');
+        navigate('/');
       })
       .catch(error => {
         console.error(error);

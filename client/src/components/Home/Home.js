@@ -25,7 +25,7 @@ export default function Home() {
 
   function getItens() {
     const header = { headers: { Authorization: `Bearer ${user.token}` } };
-    axios.get("http://localhost:5001/entry", header)
+    axios.get("https://back-my-wallet-9cf99e7e0077.herokuapp.com/entry", header)
       .then(response => {
         setItensList(response.data);
       })
